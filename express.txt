@@ -1,0 +1,34 @@
+create folder, index.html, app.js and open folder in terminal
+npm init
+npm i express body-parser
+
+
+app.js
+
+//jshint eversion:6
+const express = require("express");
+const bodyparser = require("body-parser");
+
+cont app = express();
+
+app.get("/",function(req,res){
+         res.send("Hello");
+});
+
+
+app.listen(3000,function(){
+  console.log("Server started on port 3000");
+});
+
+
+
+for including java scripts in ejs
+
+js:
+module.exports.funcname=funcname;
+(js)
+
+app.js:
+cont vari = require(__dirname+"/filename.js);
+
+let vari2= functionname();
