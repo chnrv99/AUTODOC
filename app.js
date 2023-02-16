@@ -3,7 +3,7 @@
 
 const express = require("express");
 const bodyparser = require("body-parser");
-var name="";
+const upload = require('express-fileupload')
 const app = express();
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -23,10 +23,19 @@ app.post("/",function(req,res){
         console.log(req.files)
         var file = req.files.file
         var filename=file.name
+        var typename=req.files.typename
         console.log(filename)
+        file.mv('./uploads/'+filename,function(err)
+        {
+            if(err)
+            {
+                res.send(err)
+            }
+            else{
+                res.redirect("/")
+            }
+        })
     }
-    res.redirect("/");
-    
 });
 
 let port = process.env.PORT;
